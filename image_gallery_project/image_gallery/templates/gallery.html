@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Gallery</title>
+</head>
+<body>
+    <h2>Image Gallery</h2>
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            {% for image in images %}
+                <div class="carousel-item active">
+                <div>
+                    <h3>{{ image.name }}</h3>
+                    <img src="{{ image.image.url }}" alt="{{ image.name }}" style="max-width: 300px;">
+                    <p>{{ image.description }}</p>
+                    <p>Uploaded at: {{ image.uploaded_at }}</p>
+                </div>
+                
+            {% empty %}
+                <p>No images uploaded yet.</p>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    
+
+</body>
+</html>
